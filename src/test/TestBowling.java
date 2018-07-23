@@ -57,6 +57,14 @@ public class TestBowling {
 		assertEquals(24, bowling.scoredPoints());
 	}
 	
+	@Test
+	public void PerfectGame300() 
+	{		
+		RollMany(12, 10);
+		
+		assertEquals(300, bowling.scoredPoints());
+	}
+	
 	public void RollMany(int rolls, int pins)
 	{
 		for(int i = 0; i <rolls; i++)
