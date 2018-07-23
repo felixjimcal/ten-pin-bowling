@@ -32,7 +32,7 @@ public class TestBowling {
 	}
 	
 	@Test
-	public void OneSpareReturns() 
+	public void OneSpare() 
 	{
 		// Turn
 		bowling.Roll(5); // first roll
@@ -42,6 +42,19 @@ public class TestBowling {
 		RollMany(17, 0);
 		
 		assertEquals(16, bowling.scoredPoints());
+	}
+	
+	@Test
+	public void OneStrike() 
+	{
+		// Turn
+		bowling.Roll(10); // First roll all pins = strike
+		bowling.Roll(3);
+		bowling.Roll(4);
+		
+		RollMany(16, 0);
+		
+		assertEquals(24, bowling.scoredPoints());
 	}
 	
 	public void RollMany(int rolls, int pins)

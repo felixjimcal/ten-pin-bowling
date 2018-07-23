@@ -17,17 +17,28 @@ public class Game {
 		
 		for(int frame = 0; frame <10; frame++)
 		{
-			if(isSpare(frame_index))
+			if(isStrike(frame_index))
+			{
+				score += rolls[frame_index] + rolls[frame_index + 1] + rolls[frame + 2];
+				frame_index++;
+			}
+			else if(isSpare(frame_index))
 			{
 				score += 10 + rolls[frame_index + 2];
+				frame_index += 2;
 			}
 			else
 			{
 				score += rolls[frame_index] + rolls[frame_index + 1];
+				frame_index += 2;
 			}
-			frame_index += 2;
 		}		
 		return score;
+	}
+	
+	public boolean isStrike(int frame_index)
+	{
+		return rolls[frame_index] == 10; 
 	}
 	
 	public boolean isSpare(int frame_index)
