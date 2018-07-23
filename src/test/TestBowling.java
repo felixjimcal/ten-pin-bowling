@@ -1,19 +1,19 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import code.Bowling;
+import code.Game;
 
 public class TestBowling {
 
 	@Test
 	public void DoesGameExist() 
 	{
-		Bowling game = new Bowling();
+		Game bowling = new Game();
 		
-		assertNotNull(game);
+		assertNotNull(bowling);
 	}
 
 }
