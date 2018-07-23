@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import code.Game;
 
-public class TestBowling {
+public class TestBowling  {
 	
 	private Game bowling;
 	
