@@ -16,45 +16,35 @@ import code.Game;
 
 
 public class TestBowling {
+	
+	private Game bowling;
+	
+	public TestBowling() {
+		bowling = new Game();
+	}
 
 	@Test
 	public void DoesGameExist() 
-	{
-		Game bowling;
-		
-		bowling = new Game();
-		
+	{		
 		assertNotNull(bowling);
 	}
 	
 	@Test
-	public void GutterGameReturns0() 
+	public void GutterGameReturns20() 
 	{
-		Game bowling = new Game();
+		int rolls = 20, pins = 1;
 		
-		int pins = 0;
-		
-		for(int i = 0; i <20; i++)
-		{
-			bowling.roll(pins);
-		}
-		
-		assertEquals(0, bowling.scoredPoints());
-	}
-	
-	@Test
-	public void SinglePinGameReturns20() 
-	{
-		Game bowling = new Game();
-		
-		int pins = 1;
-		
-		for(int i = 0; i <20; i++)
-		{
-			bowling.roll(pins);
-		}
+		RollMany(rolls, pins);
 		
 		assertEquals(20, bowling.scoredPoints());
+	}
+	
+	public void RollMany(int rolls, int pins)
+	{
+		for(int i = 0; i <rolls; i++)
+		{
+			bowling.roll(pins);
+		}
 	}
 	
 }
