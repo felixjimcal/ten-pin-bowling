@@ -19,7 +19,7 @@ public class Game {
 		{
 			if(isStrike(frame_index))
 			{
-				score += rolls[frame_index] + rolls[frame_index + 1] + rolls[frame + 2];
+				score += 10 + strike_bonus(frame_index);
 				frame_index++;
 			}
 			else if(isSpare(frame_index))
@@ -34,6 +34,11 @@ public class Game {
 			}
 		}		
 		return score;
+	}
+	
+	public int strike_bonus(int frame_index)
+	{
+		return rolls[frame_index + 1] + rolls[frame_index + 2];
 	}
 	
 	public boolean isStrike(int frame_index)
