@@ -13,23 +13,25 @@ public class Game {
 	
 	public int scoredPoints()
 	{
-		int roll_num = 0, score = 0;
+		int frame_index = 0, score = 0;
 		
 		for(int frame = 0; frame <10; frame++)
 		{
-			if(rolls[roll_num] + rolls[roll_num + 1] == 10)
+			if(isSpare(frame_index))
 			{
-				score += 10 + rolls[roll_num + 2];
+				score += 10 + rolls[frame_index + 2];
 			}
 			else
 			{
-				score += rolls[roll_num] + rolls[roll_num + 1];
+				score += rolls[frame_index] + rolls[frame_index + 1];
 			}
-			roll_num += 2;
+			frame_index += 2;
 		}		
 		return score;
 	}
 	
-
-
+	public boolean isSpare(int frame_index)
+	{
+		return rolls[frame_index] + rolls[frame_index +1] == 10;
+	}
 }
